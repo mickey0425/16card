@@ -12,6 +12,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        emojiChoise.shuffle()
     }
     @IBOutlet weak var flipCountLabel: UILabel!
     
@@ -28,7 +29,7 @@ class ViewController: UIViewController {
     
     var emojiChoise = ["🚷","🚯","🚳","🚱","🔞","📵","🚭","🆘","🔆","⚠️","✅","❇️","❌","🛑","❎","💀"]
     
-//   var number = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
+
 
     @IBAction func touchCard(_ sender: UIButton) {
         if let cardNumber = cardButton.index(of: sender){
@@ -51,7 +52,7 @@ class ViewController: UIViewController {
     }
 
     @IBAction func flipAll(_ sender: Any) {
-        emojiChoise.shuffle()
+        
         
         var i:Int = 0
         for button in cardButton {
@@ -60,13 +61,11 @@ class ViewController: UIViewController {
                 button.backgroundColor = #colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 1)
                 i += 1
             }
-        
-        
-        flipCount += 16
+        flipCount += 1
     }
     
     @IBAction func resetCard(_ sender: Any) {
-        
+        emojiChoise.shuffle()
         for button in cardButton {
             button.setTitle("",for:UIControl.State.normal)
             button.backgroundColor = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
